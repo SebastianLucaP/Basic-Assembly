@@ -1,0 +1,75 @@
+Task-ul 1
+
+Pentru inceput am creat in eax un contor cu care sa parcurg sirul de caractere in loop. Apoi
+am in cadrul unui loop creat cu ajutorul registrului ecx in care se afla lungimea sirului si
+a instructiunii loop am mutat fiecare caracter in registrul ebx si am adaugat step-ul aflat
+in registrul edx. Dupa aceea, am verificat cu o comparatie daca caracterul criptat a trecut
+peste caracterul 'Z' si am scazut din el caracterul 'A' daca era cazul pentru a obtine
+caracterul criptat final. In final, am incrementat contorul care parcurge sirul si am apelat
+instructiunea loop.
+
+Task-ul 2
+
+In prima parte a task-ului(2.a) am mutat in registrul dx coordonatele celui de-al doilea punct
+dupa care le-am scazut pe cele ale primului punct. Cu o comparatie, am verificat daca distanta
+rezultata este negativa, iar in cazul in care era am transformat-o din una negativa in una
+pozitiva. In final am mutat, distanta de tip short la adresa la care pointa eax, de tip int.
+
+In a doua parte a task-ului(2.b) am transformat codul scris in prima parte a task-ului pentru
+a calcula N-1 distante pentru N puncte. Asemenea codului din prima parte am pus in dx coordonatele
+celui de-al doilea punct si le-am scazut pe cele ale primului punct folosind, in plus, un contor
+care ma ajuta sa trec prin toate punctele(esi). Apoi am negat distanta in cazul in care aceasta
+era negativa, iar, in final, am adaugat distanta la vectorul final, am adaugat 4 la contor pentru
+a parcurge vectorul de coordonate de tip short si am apelat instructiunea loop.
+
+In a treia parte a task-ului(2.c) am mutat, pentru inceput, numarul de distante din eax in esi
+pentru a putea folosi registrul eax la inmultiri si am luat registrul edi drept contor pentru A
+parcurge vectorul de distante.Apoi, mi-am creat o variabila "nr" initializata cu 0 de fiecare 
+data in cadrul loop-ului pentru a ma ajuta sa verific daca distanta este patrat perfect si am
+mutat in registrul edx fiecare distanta in cadrul loop-ului. Dupa aceea, cu un alt loop, am 
+calculat patratul fiecarui numar incepand cu 0, pana cand acesta devenea mai mare decat distanta,
+caz in care puneam 0 in vectorul final, sau pana cand devenea egal cu distanta, caz in care 
+puneam 1 in vectorul final. In final, am adaugat 4 la contorul cu care parcurg vectorul si 1 la
+contorul cu care repet instructiunile de "N" ori cu ajutorul unei comparatii.
+
+Task-ul 3
+
+Pentru inceput, am creat o variabila "contor" care ma va ajuta in "prelungirea" vectorului de
+chei acesta fiind mai mic decat sirul de caractere ce trebuie criptat. Apoi am mutat lungimea
+vectorului de chei din registrul ecx intr-o variabila "len_key" si lungimea sirului de caraactere
+din registrul eax in registrul ecx pentru a putea folosi instructiunea loop. Apoi in cadrul
+loop-ului am mutat fiecare caracter in registrul eax si am scazut caracterul 'A' din acesta
+pentru a obtine diferenta dintre codul caracterului meu si codul lui 'A. Dupa aceea, am mutat
+aceasta diferenta intr-o variabila "code", iar in eax am mutat cheia cu care voi cripta caracterul
+dupa care am scazut diferenta de coduri obtinuta anterior, pentru a obtine caracterul criptat(am 
+folosit relatia "caracter criptat = cheie - (caracterul initial - caracterul 'A')). Apoi, cu 
+ajutorul unei comparatii, am verificat daca caracterul obtinut este mai mic decat 'A', caz in
+care am adaugat 26(numarul de litere din alfabet) la caracterul meu pentru a obtine caracterul 
+criptat final. Dupa aceea, l-am adaugat la sirul criptat de caractere, dupa care am incrementat 
+adresele sirurilor, pentru a trece prin toate caracterele in cadrul loop-ului, dar si variabila
+"contor", pentru a verifica daca sirul de chei a ajuns la final, caz in care scadeam din adresa
+acestuia lungimea sa, pentru a-l lua de la inceput. In cele din urma, apeleaza instructiunea loop,
+iar la finalul codului pune NULL la sfarsitul sirului final pentru a scapa de valorile reziduale
+rezultate de la task-urile anterioare(asta cred ca sunt acele valori de la final).
+
+Task-ul 4
+
+Mai intai, printr-un set de instructiuni, am creat o variabila "NxN" in care am calculat
+lungimea matricei de chei, aceasta fiind o matrice de N linii si N coloane(N - lungimea sirului
+de caractere). Apoi, am creat doua variabile "c1" si "r1" in care am pus valoarea 0 si doua
+variabile "c2" si "r2" in care am pus valoarea N-1, variabile care ma vor ajuta in implementarea
+algoritmului de parcurgere in spirala a matricei(c - column, r - row). In plus, am creat si o
+variabila "iter" care va determina cand se opreste loop-ul. Dupa aceea, intr-un loop mare, am
+copiat valoarea din registrul eax intr-o variabila "eaxc" pentru a puta folosi registrul eax ca
+registru auxiliar. In cadrul acestui loop, am parcurs cu patru loop-uri linia de sus de  la "c1"
+la "c2", coloana din dreapta de la "r1"+1 la "r2", linia de jos de la "c2"-1 la "c1" si  linia
+din stanga de la "r2"-1 la "r1"+1. La finalul loop-ului mare am adaugat 1 la "c1" si "r1" si am
+scazut 1 la "c2" si "r2" pentru a trece la urmatorul "strat" al spiralei. Loop-ul este parcurs 
+fara a incrementa contorul la sfarsit, deoarece acesta este incrementat in cadrul loop-urilor
+mici dupa fiecare criptare de caracter. In cadrul fiecarui loop mic, in eax am calculat, in
+functie de esi si edi valoarea cu care trebuie incrementata adresa matriei de chei, dupa care 
+am mutat cheia intr-o variabila "caracter". Dupa aceea, am calculat in eax valorea cu care
+trebuie incrementata adresa sirului de caractere si am adaugat cheia la acesta, dupa care am mutat
+caracterul criptat in sirul final, sirul de caractere fiind parcurs in acelasi timp cu matricea
+de chei. In finalul, fiecarui loop am comparat valoarea din variabila "iter" cu valoarea din
+variabila "NxN" pentru a sti cand s-a terminat parcurgerea dsi trebuie sa ies din loop.
